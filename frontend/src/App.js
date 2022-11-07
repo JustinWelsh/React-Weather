@@ -1,8 +1,19 @@
 import './App.css';
 import { FaBeer } from 'react-icons/fa';
+import {useEffect} from "react";
+
+const API_KEY = process.env.WEATHER_MAP_API_KEY;
 
 
 function App() {
+useEffect(() => {
+      console.log(process.env.WEATHER_MAP_API_KEY);
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=${API_KEY}`)
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+    }
+,[])
+
   return (
     <div className="App">
       <header className="App-header">
